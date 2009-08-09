@@ -1,0 +1,329 @@
+Player215 -- 1 instance, named levelButton
+Player164 -- 1 instance, named feeCostume2
+Player216 -- 1 instance, named Playfield
+Player133189 -- 1 instance, named Star
+Player166 -- 1 instance, named feeCostume4
+Player220 -- 1 instance, named allDoornobs
+Player167 -- 1 instance, named feeCostume5
+Player165 -- 1 instance, named feeCostume3
+Player124191 -- 9 instances, named magnet6 magnet3 magnet1 magnet4 magnet5 magnet9 magnet7 magnet8 magnet2
+Player127190 -- 9 instances, named holder3 holder2 holder1 holder5 holder7 holder4 holder8 holder9 holder6
+Player131187 -- 1 instance, named schatz
+Player123193 -- 1 instance, named noe
+Player162 -- 1 instance, named CostumeHolder
+Player205 -- 1 instance, named warning
+Player169 -- 1 instance, named feeCostume7
+Player226 -- 1 instance, named ritterCostume
+Player200 -- 4 instances, named wall2 wall wall1 wall3
+Player225 -- 1 instance, named feeCostume
+Player129192 -- 33 instances, named doorKnob36a doorKnob58 doorKnob45 doorKnob25a doorKnob78a doorKnob12 doorKnob23 doorKnob14 doorKnob89a doorKnob56a doorKnob45a doorKnob58a doorKnob47a doorKnob36 doorKnob89 doorKnob47 doorKnob56 doorKnob78 doorKnob14a doorKnob69 doorKnob12a doorKnob25 doorKnob69a doorKnob23a doorKnob47a1 doorKnob58a2 doorKnob12a1 doorKnob14a1 doorKnob56a1 doorKnob58a1 doorKnob23a1 doorKnob78a1 doorKnob69a1
+Player163 -- 1 instance, named feeCostume1
+Player204 -- 1 instance, named levelholder
+Player168 -- 1 instance, named feeCostume6
+Player132186 -- 1 instance, named world
+Player125188 -- 12 instances, named door36 door58 door78 door45 door56 door47 door69 door23 door89 door14 door12 door25
+Player198 -- 100 instances, named level8 level6 level14 level73 level83 level55 level79 level63 level81 level10 level21 level50 level19 level91 level37 level30 level26 level3 level71 level23 level70 level69 level16 level18 level75 level65 Level7 Level4 Level10 level66 level36 level51 level22 level13 level33 level31 level12 level89 level87 level46 level41 level17 level20 level38 level11 level67 level39 level5 level47 level49 level57 level82 level86 level25 level32 Level2 level42 level24 Level9 level76 level68 Level3 level45 level34 level1 level59 level15 level9 level58 level4 level84 level7 level40 level28 level72 level78 level64 level52 level27 level61 level44 level88 level35 level90 level74 level43 level85 level77 level2 level48 Level6 level29 level56 level80 level62 Level8 level53 level60 Level5 level54
+
+
+--------------------------------------------------------------------------------------------
+levelButton's scripts:
+	has no scripts
+--------------------------------------------------------------------------------------------
+feeCostume2's scripts:
+
+feeCostume2.reset
+	self hide
+--------------------------------------------------------------------------------------------
+Playfield's scripts:
+
+Playfield.nextLevel
+	LevelHolder setPasteUpCursor: LevelHolder getPasteUpCursor + 1.
+	LevelHolder getValueAtCursor showPassword
+
+Playfield.doLevelButton
+	LevelButton beep: 'click'.
+	LevelHolder getValueAtCursor setLevel.
+	Holder tellSelfAndAllSiblings: #setup.
+	Doo36 tellSelfAndAllSiblings: #setup.
+	LevelHolder getValueAtCursor getPasswortOk
+		ifTrue: [LevelButton triggerCustomEvent: #reset]
+
+Playfield.extractWiringFor: t1 
+	self setTmpPower: 1.
+	AllDoornobs setPasteUpCursor: 1.
+	AllDoornobs getCount
+		timesRepeat: [(t1 getMySlice // self getTmpPower isDivisibleBy: 2)
+				ifFalse: [AllDoornobs getValueAtCursor addCloneToHolder: t1].
+			self setTmpPower: self getTmpPower * 2.
+			AllDoornobs setPasteUpCursor: AllDoornobs getPasteUpCursor + 1]
+
+Playfield.button
+	Warning1 reset
+
+Playfield.doStartButton
+	Button1 beep: 'click'.
+	Button1 triggerCustomEvent: #reset
+--------------------------------------------------------------------------------------------
+Star's scripts:
+
+Star.checkForVictory
+	(self overlaps: Noe)
+		ifTrue: [Schatz getFound
+				ifFalse: [Schatz appear.
+					Playfield nextLevel]]
+--------------------------------------------------------------------------------------------
+feeCostume4's scripts:
+
+feeCostume4.reset
+	self hide
+--------------------------------------------------------------------------------------------
+allDoornobs's scripts:
+
+allDoornobs.reset
+	self hide
+--------------------------------------------------------------------------------------------
+feeCostume5's scripts:
+
+feeCostume5.reset
+	self hide
+--------------------------------------------------------------------------------------------
+feeCostume3's scripts:
+
+feeCostume3.reset
+	self hide
+--------------------------------------------------------------------------------------------
+magnet6's scripts:
+
+magnet6.moveLeft
+	(self overlaps: Noe)
+		ifTrue: [self getNeighborLeft callNoe]
+
+magnet6.moveDown
+	(self overlaps: Noe)
+		ifTrue: [self getNeighborBelow callNoe]
+
+magnet6.moveRight
+	(self overlaps: Noe)
+		ifTrue: [self getNeighborRight callNoe]
+
+magnet6.moveUp
+	(self overlaps: Noe)
+		ifTrue: [self getNeighborAbove callNoe]
+
+magnet6.checkAndToggle
+	(self overlaps: Noe)
+		ifTrue: [self toggleDoors]
+
+magnet6.callNoe
+	Noe getWalking
+		ifFalse: [(self overlaps: Noe)
+				ifFalse: [Noe walkTowards: self]]
+
+magnet6.toggleDoors
+	self beep: 'click'.
+	self getDoors tellAllContents: #toggleDoor
+--------------------------------------------------------------------------------------------
+holder3's scripts:
+
+holder3.setup
+	self removeAll.
+	self extractMySlice.
+	Playfield extractWiringFor: self
+
+holder3.extractMySlice
+	self setMySlice: self getW1factor * LevelButton getWiring1.
+	self setMySlice: self getW2factor * LevelButton getWiring2 + self getMySlice.
+	self setMySlice: self getMySlice // self getB12slice \\ 4096
+
+holder3.reset
+	self hide
+--------------------------------------------------------------------------------------------
+schatz's scripts:
+
+schatz.reset
+	self hide.
+	self setFound: false
+
+schatz.appear
+	self setFound: true.
+	self show.
+	Star beep: 'horn'
+--------------------------------------------------------------------------------------------
+noe's scripts:
+
+noe.oneStep
+	self moveToward: self getTarget.
+	self beep: 'scratch'
+
+noe.shapeShift
+	self beep: 'click'.
+	CostumeHolder setPasteUpCursor: CostumeHolder getPasteUpCursor + 1.
+	self wearCostumeOf: CostumeHolder getValueAtCursor
+
+noe.stopWalking
+	self setWalking: false.
+	self stopScript: #walk
+
+noe.click
+	self triggerCustomEvent: #noemiClicked
+
+noe.walkTowards: t1 
+	self setTarget: t1.
+	self setOldX: self getX.
+	self setOldY: self getY.
+	self setWalking: true.
+	self startScript: #walk
+
+noe.walk
+	self oneStep.
+	(self overlaps: self getTarget)
+		ifTrue: [self setLocationRounded: self getTarget getLocationRounded.
+			self stopWalking].
+	(self overlapsAny: Door2)
+		ifTrue: [self bounceBack].
+	(self overlapsAny: Wall)
+		ifTrue: [self bounceBack]
+
+noe.reset
+	self setLocationRounded: Magnet getLocationRounded
+
+noe.callNoe
+	self beep: 'clink'
+
+noe.bounceBack
+	self beep: 'clink'.
+	self stopWalking.
+	self setX: self getOldX.
+	self setY: self getOldY
+--------------------------------------------------------------------------------------------
+CostumeHolder's scripts:
+
+CostumeHolder.reset
+	self hide
+--------------------------------------------------------------------------------------------
+warning's scripts:
+
+warning.reset
+	self hide
+
+warning.warn
+	self show
+--------------------------------------------------------------------------------------------
+feeCostume7's scripts:
+
+feeCostume7.reset
+	self hide
+--------------------------------------------------------------------------------------------
+ritterCostume's scripts:
+
+ritterCostume.reset
+	self hide
+--------------------------------------------------------------------------------------------
+wall2's scripts:
+
+wall2.dummyToBeScripted
+	^ self
+--------------------------------------------------------------------------------------------
+feeCostume's scripts:
+
+feeCostume.reset
+	self hide
+--------------------------------------------------------------------------------------------
+doorKnob36a's scripts:
+
+doorKnob36a.toggleDoor
+	self getDoor toggle
+
+doorKnob36a.addCloneToHolder: t1 
+	t1 include: self getNewClone
+
+doorKnob36a.reset
+	self hide
+--------------------------------------------------------------------------------------------
+feeCostume1's scripts:
+
+feeCostume1.reset
+	self hide
+--------------------------------------------------------------------------------------------
+levelholder's scripts:
+
+levelholder.reset
+	self hide
+--------------------------------------------------------------------------------------------
+feeCostume6's scripts:
+
+feeCostume6.reset
+	self hide
+--------------------------------------------------------------------------------------------
+world's scripts:
+
+world.startButton
+	Playfield doStartButton
+
+world.schaltknopf
+	Noe shapeShift
+
+world.levelButton
+	Playfield doLevelButton
+
+world.keyControl
+	Noe getWalking
+		ifFalse: [(self getLastKeystroke eToysEQ: '<up>')
+				ifTrue: [Magnet tellSelfAndAllSiblings: #moveUp].
+			(self getLastKeystroke eToysEQ: '<down>')
+				ifTrue: [Magnet tellSelfAndAllSiblings: #moveDown].
+			(self getLastKeystroke eToysEQ: '<left>')
+				ifTrue: [Magnet tellSelfAndAllSiblings: #moveLeft].
+			(self getLastKeystroke eToysEQ: '<right>')
+				ifTrue: [Magnet tellSelfAndAllSiblings: #moveRight].
+			(self getLastKeystroke eToysEQ: '<cr>')
+				ifTrue: [self triggerCustomEvent: #noemiClicked]]
+--------------------------------------------------------------------------------------------
+door36's scripts:
+
+door36.setup
+	self setScratchpad: LevelButton getDoors // self getPowerCode.
+	self
+		setInitiallyOpen: (self getScratchpad isDivisibleBy: 2)
+
+door36.toggle
+	self beep: 'click'.
+	self getOpen
+		ifTrue: [self setOpen: false]
+		ifFalse: [self setOpen: true].
+	self operateDoor
+
+door36.reset
+	self setOpen: self getInitiallyOpen.
+	self operateDoor
+
+door36.operateDoor
+	self getOpen
+		ifTrue: [self hide]
+		ifFalse: [self show]
+
+door36.Skript1
+	self tellSelfAndAllSiblings: #setup
+--------------------------------------------------------------------------------------------
+level8's scripts:
+
+level8.setLevel
+	(self getPassword eToysEQ: '')
+		ifTrue: [self setPasswortOk: true]
+		ifFalse: [self
+				setPasswortOk: (self getPassword eToysEQ: LevelButton getPasswordInput)].
+	self getPasswortOk
+		ifTrue: [self doSetLevel]
+		ifFalse: [self beep: 'clink'.
+			Warning1 warn]
+
+level8.showPassword
+	LevelButton setPasswordInput: self getPassword
+
+level8.doSetLevel
+	LevelButton setDoors: self getDoors.
+	LevelButton setWiring1: self getWiring1.
+	LevelButton setWiring2: self getWiring2
+
+level8.reset
+	self hide
