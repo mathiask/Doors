@@ -10,9 +10,8 @@
 
 @interface AppController : NSObject {
 	BOOL doorsClosed;
-	IBOutlet id view; // remove me when KVO works!
 }
-@property(readonly) BOOL doorsClosed;
+@property BOOL doorsClosed;
 
 - (IBAction)start:(id)sender;
 - (IBAction)reset:(id)sender;

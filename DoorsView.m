@@ -10,18 +10,16 @@
 
 @implementation DoorsView
 
--(id)initWithFrame:(NSRect)rect
+-(void)awakeFromNib
 {
-	if(![super initWithFrame:rect]) return nil;
-	NSLog(@"Registering observer");
+	NSLog(@"Registering observer having just woken up from NIB...");
 	[appController addObserver:self forKeyPath:@"doorsClosed" options:NSKeyValueObservingOptionOld context:nil];
-	return self;
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	NSLog(@"Observed change");
-	[self setNeedsDisplay:NO];
+	NSLog(@"Observed change, setting dirty flag");
+	[self setNeedsDisplay:YES];
 }
 
 

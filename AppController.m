@@ -22,19 +22,13 @@
 - (IBAction)start:(id)sender
 {
 	NSLog(@"Start clicked.");
-	[self willChangeValueForKey:@"doorsClosed"];
-	doorsClosed = YES;
-	[self didChangeValueForKey:@"doorsClosed"];
-	[view setNeedsDisplay:NO]; // remove me
+	[self setDoorsClosed: YES];
 }
 
 - (IBAction)reset:(id)sender
 {
 	NSLog(@"Reset clicked.");
-	[self willChangeValueForKey:@"doorsClosed"];
-	doorsClosed = NO;
-	[self didChangeValueForKey:@"doorsClosed"];
-	[view setNeedsDisplay:NO]; // remove me
+	[self setDoorsClosed:NO];
 }
 
 @end
