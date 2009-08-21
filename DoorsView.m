@@ -3,7 +3,7 @@
 //  Doors
 //
 //  Created by Mathias Kegelmann on 8/9/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009. All rights reserved.
 //
 
 #import "DoorsView.h"
@@ -39,10 +39,7 @@
 -(void)drawHinges:(NSRect)bounds
 {
 	int boardSize = (int)bounds.size.width / 3; // assuming width = height for now
-	NSRect circleBounds;
-	circleBounds.size.width = [self hingeSize];
-	circleBounds.size.height = [self hingeSize];
-	
+	NSRect circleBounds = {{0, 0}, {[self hingeSize], [self hingeSize]}};	
 	[[NSColor blackColor] set];
 	for (int x = 1; x <= 2; x++) {
 		for (int y = 1; y <= 2; y++) {
@@ -51,7 +48,6 @@
 			[[NSBezierPath bezierPathWithOvalInRect:circleBounds] fill];
 		}
 	}
-	
 }
 
 -(void)drawDoors:(NSRect)bounds
@@ -61,8 +57,7 @@
 	[[NSColor blueColor] set];
 	NSBezierPath *path = [NSBezierPath bezierPath];
 	[path setLineWidth:3.0];
-	NSPoint point;
-	point.x = point.y = 160;
+	NSPoint point = {160, 160};
 	[path moveToPoint:point];
 	point.x = 290;
 	[path lineToPoint:point];
