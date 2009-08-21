@@ -13,7 +13,18 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C7954C21102F3AB50052FEAE /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7954C20102F3AB50052FEAE /* AppController.m */; };
 		C7954C2A102F3C5D0052FEAE /* DoorsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7954C29102F3C5D0052FEAE /* DoorsView.m */; };
+		C7E85B70103EDABC00138FAB /* AppControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E85B6F103EDABC00138FAB /* AppControllerTest.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7E85BCA103EDFBF00138FAB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = Doors;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -30,6 +41,10 @@
 		C7954C20102F3AB50052FEAE /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		C7954C28102F3C5D0052FEAE /* DoorsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsView.h; sourceTree = "<group>"; };
 		C7954C29102F3C5D0052FEAE /* DoorsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsView.m; sourceTree = "<group>"; };
+		C7E85B60103ED8EC00138FAB /* tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7E85B61103ED8EC00138FAB /* tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "tests-Info.plist"; sourceTree = "<group>"; };
+		C7E85B6E103EDABC00138FAB /* AppControllerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppControllerTest.h; sourceTree = "<group>"; };
+		C7E85B6F103EDABC00138FAB /* AppControllerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppControllerTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +53,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7E85B5D103ED8EC00138FAB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +73,8 @@
 				C7954C20102F3AB50052FEAE /* AppController.m */,
 				C7954C28102F3C5D0052FEAE /* DoorsView.h */,
 				C7954C29102F3C5D0052FEAE /* DoorsView.m */,
+				C7E85B6E103EDABC00138FAB /* AppControllerTest.h */,
+				C7E85B6F103EDABC00138FAB /* AppControllerTest.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -77,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Doors.app */,
+				C7E85B60103ED8EC00138FAB /* tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,6 +114,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				C7E85B61103ED8EC00138FAB /* tests-Info.plist */,
 			);
 			name = Doors;
 			sourceTree = "<group>";
@@ -142,6 +168,25 @@
 			productReference = 8D1107320486CEB800E47090 /* Doors.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C7E85B5F103ED8EC00138FAB /* tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7E85B65103ED8ED00138FAB /* Build configuration list for PBXNativeTarget "tests" */;
+			buildPhases = (
+				C7E85B5B103ED8EC00138FAB /* Resources */,
+				C7E85B5C103ED8EC00138FAB /* Sources */,
+				C7E85B5D103ED8EC00138FAB /* Frameworks */,
+				C7E85B5E103ED8EC00138FAB /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7E85BCB103EDFBF00138FAB /* PBXTargetDependency */,
+			);
+			name = tests;
+			productName = tests;
+			productReference = C7E85B60103ED8EC00138FAB /* tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -155,6 +200,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Doors */,
+				C7E85B5F103ED8EC00138FAB /* tests */,
 			);
 		};
 /* End PBXProject section */
@@ -169,7 +215,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7E85B5B103ED8EC00138FAB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C7E85B5E103ED8EC00138FAB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
@@ -182,7 +251,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7E85B5C103ED8EC00138FAB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E85B70103EDABC00138FAB /* AppControllerTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7E85BCB103EDFBF00138FAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Doors */;
+			targetProxy = C7E85BCA103EDFBF00138FAB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -261,6 +346,62 @@
 			};
 			name = Release;
 		};
+		C7E85B63103ED8ED00138FAB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Doors.app/Contents/MacOS/Doors";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = tests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Doors.app/Contents/MacOS/Doors";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		C7E85B64103ED8ED00138FAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = tests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -278,6 +419,15 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7E85B65103ED8ED00138FAB /* Build configuration list for PBXNativeTarget "tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7E85B63103ED8ED00138FAB /* Debug */,
+				C7E85B64103ED8ED00138FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
