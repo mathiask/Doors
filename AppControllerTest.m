@@ -25,6 +25,7 @@
     STAssertFalse([appController doorsClosed], nil);
 }
 
+
 -(void) testStartOpensDoor
 {
     [appController start:nil];

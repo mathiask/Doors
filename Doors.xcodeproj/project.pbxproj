@@ -11,6 +11,8 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C77B40F8107D4013005BDAD3 /* WorldModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C77B40F7107D4013005BDAD3 /* WorldModelTest.m */; };
+		C77B40F9107D4033005BDAD3 /* WorldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C77B40F2107D3E5C005BDAD3 /* WorldModel.m */; };
 		C7954C21102F3AB50052FEAE /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7954C20102F3AB50052FEAE /* AppController.m */; };
 		C7954C2A102F3C5D0052FEAE /* DoorsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7954C29102F3C5D0052FEAE /* DoorsView.m */; };
 		C7E85B70103EDABC00138FAB /* AppControllerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E85B6F103EDABC00138FAB /* AppControllerTest.m */; };
@@ -37,6 +39,10 @@
 		32CA4F630368D1EE00C91783 /* Doors_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doors_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Doors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doors.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C77B40F1107D3E5C005BDAD3 /* WorldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldModel.h; sourceTree = "<group>"; };
+		C77B40F2107D3E5C005BDAD3 /* WorldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldModel.m; sourceTree = "<group>"; };
+		C77B40F6107D4013005BDAD3 /* WorldModelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldModelTest.h; sourceTree = "<group>"; };
+		C77B40F7107D4013005BDAD3 /* WorldModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldModelTest.m; sourceTree = "<group>"; };
 		C7954C1F102F3AB50052FEAE /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		C7954C20102F3AB50052FEAE /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		C7954C28102F3C5D0052FEAE /* DoorsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsView.h; sourceTree = "<group>"; };
@@ -75,6 +81,10 @@
 				C7954C29102F3C5D0052FEAE /* DoorsView.m */,
 				C7E85B6E103EDABC00138FAB /* AppControllerTest.h */,
 				C7E85B6F103EDABC00138FAB /* AppControllerTest.m */,
+				C77B40F1107D3E5C005BDAD3 /* WorldModel.h */,
+				C77B40F2107D3E5C005BDAD3 /* WorldModel.m */,
+				C77B40F6107D4013005BDAD3 /* WorldModelTest.h */,
+				C77B40F7107D4013005BDAD3 /* WorldModelTest.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -245,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C77B40F9107D4033005BDAD3 /* WorldModel.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				C7954C21102F3AB50052FEAE /* AppController.m in Sources */,
 				C7954C2A102F3C5D0052FEAE /* DoorsView.m in Sources */,
@@ -256,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7E85B70103EDABC00138FAB /* AppControllerTest.m in Sources */,
+				C77B40F8107D4013005BDAD3 /* WorldModelTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 
 
 @implementation AppController
--(id)init
+- (id)init
 {
 	if(![super init]) return nil;
 	doorsClosed = NO;

@@ -10,33 +10,33 @@
 
 @implementation DoorsView
 
--(void)awakeFromNib
+- (void)awakeFromNib
 {
 	NSLog(@"Registering observer having just woken up from NIB...");
 	[appController addObserver:self forKeyPath:@"doorsClosed" options:NSKeyValueObservingOptionOld context:nil];
 }
 
--(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
 	NSLog(@"Observed change, setting dirty flag");
 	[self setNeedsDisplay:YES];
 }
 
 
--(int)hingeSize
+- (int)hingeSize
 {
 	return 20;
 }
 
 
--(void)drawBackground:(NSRect)bounds
+- (void)drawBackground:(NSRect)bounds
 {
 	[[NSColor greenColor] set];
 	[NSBezierPath fillRect:bounds];
 }
 
 
--(void)drawHinges:(NSRect)bounds
+- (void)drawHinges:(NSRect)bounds
 {
 	int boardSize = (int)bounds.size.width / 3; // assuming width = height for now
 	NSRect circleBounds = {{0, 0}, {[self hingeSize], [self hingeSize]}};	
@@ -50,7 +50,7 @@
 	}
 }
 
--(void)drawDoors:(NSRect)bounds
+- (void)drawDoors:(NSRect)bounds
 {
 	if (![appController doorsClosed]) return;
 	
