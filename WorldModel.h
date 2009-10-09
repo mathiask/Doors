@@ -14,12 +14,16 @@
     BOOL verticalDoorsOpen[2][3];
 }
 
+// invalid (x,y) implies false
 - (BOOL)isHorizontalDoorOpenAtX:(int)x andY:(int)y;
-- (void)closeHorizontalDoorAtX:(int)x andY:(int)y;
+- (BOOL)isHorizontalDoorOpen:(DoorsDoorCoordinates)doorCoordinates;
 - (BOOL)isVerticalDoorOpenAtX:(int)x andY:(int)y;
+- (BOOL)isVerticalDoorOpen:(DoorsDoorCoordinates)doorCoordinates;
+
+- (void)closeHorizontalDoorAtX:(int)x andY:(int)y;
 - (void)closeVerticalDoorAtX:(int)x andY:(int)y;
 
-- (BOOL)isPossibleStepFrom:(DoorsCoordinates)position inDirection:(Class)direction;
+- (BOOL)canMoveFrom:(DoorsCoordinates)position inDirection:(Class)direction;
 
 @end
 

@@ -23,9 +23,11 @@
 
 - (BOOL)isHorizontalDoorOpenAtX:(int)x andY:(int)y 
 {
-    NSParameterAssert(x >= 0 && x < 3);
-    NSParameterAssert(y >= 0 && y < 2);
-    return horizontalDoorsOpen[x][y];
+    return x >= 0 && x < 3 && y >= 0 && y < 2 && horizontalDoorsOpen[x][y];
+}
+
+- (BOOL)isHorizontalDoorOpen:(DoorsDoorCoordinates)doorCoordinates{
+    return [self isHorizontalDoorOpenAtX:doorCoordinates.x andY:doorCoordinates.y];
 }
 
 - (void)closeHorizontalDoorAtX:(int)x andY:(int)y
@@ -37,9 +39,11 @@
 
 - (BOOL)isVerticalDoorOpenAtX:(int)x andY:(int)y 
 {
-    NSParameterAssert(x >= 0 && x < 2);
-    NSParameterAssert(y >= 0 && y < 3);
-    return verticalDoorsOpen[x][y];
+    return x >= 0 && x < 2 && y >= 0 && y < 3 && verticalDoorsOpen[x][y];
+}
+
+- (BOOL)isVerticalDoorOpen:(DoorsDoorCoordinates)doorCoordinates{
+    return [self isVerticalDoorOpenAtX:doorCoordinates.x andY:doorCoordinates.y];
 }
 
 - (void)closeVerticalDoorAtX:(int)x andY:(int)y
@@ -49,8 +53,11 @@
     verticalDoorsOpen[x][y] = FALSE;
 }
 
-- (BOOL)isPossibleStepFrom:(DoorsCoordinates)position inDirection:(Class)direction {
-    return NO;
+- (BOOL)canMoveFrom:(DoorsCoordinates)position inDirection:(Class)direction {
+    DoorsDoorCoordinates doorCoordinates = [self doorCoordinatesAt:position andDirection:direction];
+    return [self directionImpliesHorizontalDoor:direction] ?
+        [self isHorizontalDoorOpen:doorCoordinates] :
+        [self isVerticalDoorOpen:doorCoordinates];
 }
 
 // private methods
