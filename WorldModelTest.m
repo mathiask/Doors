@@ -8,19 +8,19 @@
 
 #import "WorldModelTest.h"
 
-
 @implementation WorldModelTest
--(void) setUp
+
+- (void) setUp
 {
     model = [WorldModel new];
 }
 
--(void)tearDown
+- (void)tearDown
 {
     [model release];
 }
 
--(void) testHorizontalDoorsAreInitiallyOpen
+- (void) testHorizontalDoorsAreInitiallyOpen
 {
     for (int y = 0; y < 2; y++) {
         for (int x = 0; x < 3; x++) {
@@ -29,7 +29,7 @@
     }
 }
 
--(void) testHorizontalDoorClosed
+- (void) testHorizontalDoorClosed
 {
     [model closeHorizontalDoorAtX:1 andY:1];
     STAssertFalse([model isHorizontalDoorOpenAtX:1 andY:1], nil);
@@ -44,12 +44,10 @@
     }
 }
 
--(void) testVerticalDoorClosed
+- (void) testVerticalDoorClosed
 {
     [model closeVerticalDoorAtX:1 andY:1];
     STAssertFalse([model isVerticalDoorOpenAtX:1 andY:1], nil);
 }
-
-
 
 @end

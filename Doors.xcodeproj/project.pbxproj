@@ -11,6 +11,8 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C76274DE107FD869003945F8 /* DoorsDirectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C76274DD107FD869003945F8 /* DoorsDirectionsTest.m */; };
+		C7627539107FDBDA003945F8 /* DoorsDirections.m in Sources */ = {isa = PBXBuildFile; fileRef = C7627538107FDBDA003945F8 /* DoorsDirections.m */; };
 		C77B40F8107D4013005BDAD3 /* WorldModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C77B40F7107D4013005BDAD3 /* WorldModelTest.m */; };
 		C77B40F9107D4033005BDAD3 /* WorldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C77B40F2107D3E5C005BDAD3 /* WorldModel.m */; };
 		C7954C21102F3AB50052FEAE /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7954C20102F3AB50052FEAE /* AppController.m */; };
@@ -39,6 +41,10 @@
 		32CA4F630368D1EE00C91783 /* Doors_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Doors_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Doors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Doors.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C76274DC107FD869003945F8 /* DoorsDirectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsDirectionsTest.h; sourceTree = "<group>"; };
+		C76274DD107FD869003945F8 /* DoorsDirectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsDirectionsTest.m; sourceTree = "<group>"; };
+		C7627537107FDBDA003945F8 /* DoorsDirections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsDirections.h; sourceTree = "<group>"; };
+		C7627538107FDBDA003945F8 /* DoorsDirections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsDirections.m; sourceTree = "<group>"; };
 		C77B40F1107D3E5C005BDAD3 /* WorldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldModel.h; sourceTree = "<group>"; };
 		C77B40F2107D3E5C005BDAD3 /* WorldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldModel.m; sourceTree = "<group>"; };
 		C77B40F6107D4013005BDAD3 /* WorldModelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldModelTest.h; sourceTree = "<group>"; };
@@ -85,6 +91,10 @@
 				C77B40F2107D3E5C005BDAD3 /* WorldModel.m */,
 				C77B40F6107D4013005BDAD3 /* WorldModelTest.h */,
 				C77B40F7107D4013005BDAD3 /* WorldModelTest.m */,
+				C76274DC107FD869003945F8 /* DoorsDirectionsTest.h */,
+				C76274DD107FD869003945F8 /* DoorsDirectionsTest.m */,
+				C7627537107FDBDA003945F8 /* DoorsDirections.h */,
+				C7627538107FDBDA003945F8 /* DoorsDirections.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -268,6 +278,8 @@
 			files = (
 				C7E85B70103EDABC00138FAB /* AppControllerTest.m in Sources */,
 				C77B40F8107D4013005BDAD3 /* WorldModelTest.m in Sources */,
+				C76274DE107FD869003945F8 /* DoorsDirectionsTest.m in Sources */,
+				C7627539107FDBDA003945F8 /* DoorsDirections.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

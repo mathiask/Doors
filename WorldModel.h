@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @interface WorldModel : NSObject {
     BOOL horizontalDoorsOpen[3][2];
     BOOL verticalDoorsOpen[2][3];
@@ -20,3 +19,4 @@
 - (void)closeVerticalDoorAtX:(int)x andY:(int)y;
 
 @end
+

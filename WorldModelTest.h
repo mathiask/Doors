@@ -12,5 +12,4 @@
 @interface WorldModelTest : SenTestCase {
     WorldModel *model;
 }
-
 @end

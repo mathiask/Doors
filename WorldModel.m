@@ -7,6 +7,7 @@
 //
 
 #import "WorldModel.h"
+
 @implementation WorldModel
 
 - (id)init 
@@ -49,3 +50,4 @@
 }
 
 @end
+
