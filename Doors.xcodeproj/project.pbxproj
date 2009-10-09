@@ -11,8 +11,8 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		C70F11F2107FECEC00954E32 /* DoorsDirections.m in Sources */ = {isa = PBXBuildFile; fileRef = C7627538107FDBDA003945F8 /* DoorsDirections.m */; };
 		C76274DE107FD869003945F8 /* DoorsDirectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C76274DD107FD869003945F8 /* DoorsDirectionsTest.m */; };
-		C7627539107FDBDA003945F8 /* DoorsDirections.m in Sources */ = {isa = PBXBuildFile; fileRef = C7627538107FDBDA003945F8 /* DoorsDirections.m */; };
 		C77B40F8107D4013005BDAD3 /* WorldModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C77B40F7107D4013005BDAD3 /* WorldModelTest.m */; };
 		C77B40F9107D4033005BDAD3 /* WorldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C77B40F2107D3E5C005BDAD3 /* WorldModel.m */; };
 		C7954C21102F3AB50052FEAE /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7954C20102F3AB50052FEAE /* AppController.m */; };
@@ -81,18 +81,13 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C70F11EF107FEC9A00954E32 /* Tests */,
 				C7954C1F102F3AB50052FEAE /* AppController.h */,
 				C7954C20102F3AB50052FEAE /* AppController.m */,
 				C7954C28102F3C5D0052FEAE /* DoorsView.h */,
 				C7954C29102F3C5D0052FEAE /* DoorsView.m */,
-				C7E85B6E103EDABC00138FAB /* AppControllerTest.h */,
-				C7E85B6F103EDABC00138FAB /* AppControllerTest.m */,
 				C77B40F1107D3E5C005BDAD3 /* WorldModel.h */,
 				C77B40F2107D3E5C005BDAD3 /* WorldModel.m */,
-				C77B40F6107D4013005BDAD3 /* WorldModelTest.h */,
-				C77B40F7107D4013005BDAD3 /* WorldModelTest.m */,
-				C76274DC107FD869003945F8 /* DoorsDirectionsTest.h */,
-				C76274DD107FD869003945F8 /* DoorsDirectionsTest.m */,
 				C7627537107FDBDA003945F8 /* DoorsDirections.h */,
 				C7627538107FDBDA003945F8 /* DoorsDirections.m */,
 			);
@@ -165,6 +160,19 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C70F11EF107FEC9A00954E32 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C7E85B6E103EDABC00138FAB /* AppControllerTest.h */,
+				C77B40F6107D4013005BDAD3 /* WorldModelTest.h */,
+				C76274DC107FD869003945F8 /* DoorsDirectionsTest.h */,
+				C76274DD107FD869003945F8 /* DoorsDirectionsTest.m */,
+				C77B40F7107D4013005BDAD3 /* WorldModelTest.m */,
+				C7E85B6F103EDABC00138FAB /* AppControllerTest.m */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C70F11F2107FECEC00954E32 /* DoorsDirections.m in Sources */,
 				C77B40F9107D4033005BDAD3 /* WorldModel.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				C7954C21102F3AB50052FEAE /* AppController.m in Sources */,
@@ -279,7 +288,6 @@
 				C7E85B70103EDABC00138FAB /* AppControllerTest.m in Sources */,
 				C77B40F8107D4013005BDAD3 /* WorldModelTest.m in Sources */,
 				C76274DE107FD869003945F8 /* DoorsDirectionsTest.m in Sources */,
-				C7627539107FDBDA003945F8 /* DoorsDirections.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
