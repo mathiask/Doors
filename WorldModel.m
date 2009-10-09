@@ -57,18 +57,18 @@
 
 - (BOOL)directionImpliesHorizontalDoor:(Class)direction {
     DoorsVector vector = [direction asVector];
-    return vector.x != 0;
+    return vector.y != 0;
 }
 
 - (DoorsDoorCoordinates) doorCoordinatesAt:(DoorsCoordinates)position andDirection:(Class)direction {
     DoorsVector vector = [direction asVector];
     DoorsDoorCoordinates d;    
     if ([self directionImpliesHorizontalDoor:direction]) {
-        d.x = position.x - (vector.x < 0 ? 1 : 0);
-        d.y = position.y;
-    } else {
         d.x = position.x;
         d.y = position.y - (vector.y < 0 ? 1 : 0);
+    } else {
+        d.x = position.x - (vector.x < 0 ? 1 : 0);
+        d.y = position.y;
     }
     return d;
 }

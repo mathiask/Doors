@@ -51,19 +51,19 @@
 }
 
 - (void) testUpImpliesHorizontal {
-    STAssertFalse([model directionImpliesHorizontalDoor:[DoorsDirectionUp class]], nil);
+    STAssertTrue([model directionImpliesHorizontalDoor:[DoorsDirectionUp class]], nil);
 }
 
 - (void) testRightImpliesHorizontal {
-    STAssertTrue([model directionImpliesHorizontalDoor:[DoorsDirectionRight class]], nil);
+    STAssertFalse([model directionImpliesHorizontalDoor:[DoorsDirectionRight class]], nil);
 }
 
 - (void) testDownImpliesHorizontal {
-    STAssertFalse([model directionImpliesHorizontalDoor:[DoorsDirectionDown class]], nil);
+    STAssertTrue([model directionImpliesHorizontalDoor:[DoorsDirectionDown class]], nil);
 }
 
 - (void) testLeftImpliesHorizontal {
-    STAssertTrue([model directionImpliesHorizontalDoor:[DoorsDirectionLeft class]], nil);
+    STAssertFalse([model directionImpliesHorizontalDoor:[DoorsDirectionLeft class]], nil);
 }
 
 - (void)testDoorCoordinatesAtAndDirectionUp {
@@ -89,6 +89,5 @@
     DoorsDoorCoordinates expected = { 0, 1 };
     STAssertEquals(expected, [model doorCoordinatesAt:position andDirection:[DoorsDirectionLeft class]], nil);
 }
-
 
 @end
