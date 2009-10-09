@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "DoorsDirections.h"
 
 @interface WorldModel : NSObject {
     BOOL horizontalDoorsOpen[3][2];
@@ -18,5 +19,13 @@
 - (BOOL)isVerticalDoorOpenAtX:(int)x andY:(int)y;
 - (void)closeVerticalDoorAtX:(int)x andY:(int)y;
 
+- (BOOL)isPossibleStepFrom:(DoorsCoordinates)position inDirection:(Class)direction;
+
 @end
 
+@interface WorldModel (private) 
+
+- (BOOL)directionImpliesHorizontalDoor:(Class)direction;
+- (DoorsDoorCoordinates) doorCoordinatesAt:(DoorsCoordinates)position andDirection:(Class)direction;
+
+@end

@@ -14,6 +14,7 @@ struct DoorsCoordinates {
 };
 typedef struct DoorsCoordinates DoorsCoordinates;
 typedef DoorsCoordinates DoorsVector;
+typedef DoorsCoordinates DoorsDoorCoordinates;
 
 
 @protocol DoorsDirection
