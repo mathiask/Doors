@@ -10,6 +10,7 @@
 
 @implementation WorldModel
 
+
 - (id)init 
 {
     for (int i = 0; i < 2; i++) {
@@ -78,6 +79,15 @@
         d.y = position.y;
     }
     return d;
+}
+
+
+- (void)toggleDoor:(DoorLocator)doorLocator {
+    DoorsDoorCoordinates c = doorLocator.coordinates;
+    if (doorLocator.horizontalDoor)
+        horizontalDoorsOpen[c.x][c.y] = !horizontalDoorsOpen[c.x][c.y];
+    else
+        verticalDoorsOpen[c.x][c.y] = !verticalDoorsOpen[c.x][c.y];
 }
 
 @end

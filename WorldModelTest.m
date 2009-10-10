@@ -254,4 +254,34 @@
 }
 
 
+- (void)testToggleDoorOnHorizontalDoor {
+    DoorsDoorCoordinates dc = { 1, 1};
+    DoorLocator locator = { HORIZONTAL_DOOR, dc};
+    [model toggleDoor:locator];
+    STAssertFalse([model isHorizontalDoorOpen:dc], nil);
+}
+
+- (void)testToggleDoorTwice {
+    DoorsDoorCoordinates dc = { 1, 1};
+    DoorLocator locator = { HORIZONTAL_DOOR, dc };
+    [model toggleDoor:locator];
+    [model toggleDoor:locator];
+    STAssertTrue([model isHorizontalDoorOpen:dc], nil);
+}
+
+- (void)testToggleDoorLeavesOtherDoorsInPeace {
+    DoorsDoorCoordinates dc = { 1, 1};
+    DoorsDoorCoordinates other = { 0, 1};
+    DoorLocator locator = { HORIZONTAL_DOOR, dc };
+    [model toggleDoor:locator];
+    STAssertTrue([model isHorizontalDoorOpen:other], nil);
+}
+
+- (void)testToggleDoorOnVerticalDoor {
+    DoorsDoorCoordinates dc = { 1, 1};
+    DoorLocator locator = { VERTICAL_DOOR, dc };
+    [model toggleDoor:locator];
+    STAssertFalse([model isVerticalDoorOpen:dc], nil);
+}
+
 @end
