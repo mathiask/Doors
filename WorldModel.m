@@ -8,9 +8,38 @@
 
 #import "WorldModel.h"
 
+@implementation DoorKnob
+
+- (id)initWithWorldModel:(WorldModel *)aModel andDoorLocators:(NSArray *)aDoorLocatorArray
+{
+    if (self = [super init]) {
+        [aModel retain];
+        worldModel = aModel;
+        [aDoorLocatorArray retain];
+        doorLocators = aDoorLocatorArray;
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [doorLocators release];
+    [worldModel release];
+    [super dealloc];
+}
+
+- (void)toggle
+{
+    for (DoorLocator *locator in doorLocators) {
+        [worldModel toggleDoor:locator];
+    }
+}
+
+@end
+
+
+
 @implementation WorldModel
-
-
 - (id)init 
 {
     for (int i = 0; i < 2; i++) {
@@ -27,7 +56,8 @@
     return x >= 0 && x < 3 && y >= 0 && y < 2 && horizontalDoorsOpen[x][y];
 }
 
-- (BOOL)isHorizontalDoorOpen:(DoorsDoorCoordinates)doorCoordinates{
+- (BOOL)isHorizontalDoorOpen:(DoorsDoorCoordinates)doorCoordinates
+{
     return [self isHorizontalDoorOpenAtX:doorCoordinates.x andY:doorCoordinates.y];
 }
 
@@ -54,7 +84,8 @@
     verticalDoorsOpen[x][y] = FALSE;
 }
 
-- (BOOL)canMoveFrom:(DoorsCoordinates)position inDirection:(Class)direction {
+- (BOOL)canMoveFrom:(DoorsCoordinates)position inDirection:(Class)direction 
+{
     DoorsDoorCoordinates doorCoordinates = [self doorCoordinatesAt:position andDirection:direction];
     return [self directionImpliesHorizontalDoor:direction] ?
         [self isHorizontalDoorOpen:doorCoordinates] :
@@ -63,12 +94,14 @@
 
 // private methods
 
-- (BOOL)directionImpliesHorizontalDoor:(Class)direction {
+- (BOOL)directionImpliesHorizontalDoor:(Class)direction 
+{
     DoorsVector vector = [direction asVector];
     return vector.y != 0;
 }
 
-- (DoorsDoorCoordinates) doorCoordinatesAt:(DoorsCoordinates)position andDirection:(Class)direction {
+- (DoorsDoorCoordinates) doorCoordinatesAt:(DoorsCoordinates)position andDirection:(Class)direction 
+{
     DoorsVector vector = [direction asVector];
     DoorsDoorCoordinates d;    
     if ([self directionImpliesHorizontalDoor:direction]) {
@@ -82,7 +115,8 @@
 }
 
 
-- (void)toggleDoor:(DoorLocator *)doorLocator {
+- (void)toggleDoor:(DoorLocator *)doorLocator 
+{
     DoorsDoorCoordinates c = [doorLocator coordinates];
     if ([doorLocator horizontalDoor])
         horizontalDoorsOpen[c.x][c.y] = !horizontalDoorsOpen[c.x][c.y];

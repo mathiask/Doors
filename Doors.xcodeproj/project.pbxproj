@@ -14,6 +14,7 @@
 		C70F11F2107FECEC00954E32 /* DoorsDirections.m in Sources */ = {isa = PBXBuildFile; fileRef = C7627538107FDBDA003945F8 /* DoorsDirections.m */; };
 		C72FBAC11087C71B008D2EF0 /* DoorLocatorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C72FBAC01087C71B008D2EF0 /* DoorLocatorTest.m */; };
 		C72FBAC21087C730008D2EF0 /* DoorLocator.m in Sources */ = {isa = PBXBuildFile; fileRef = C72FBABB1087C0CA008D2EF0 /* DoorLocator.m */; };
+		C72FBB551087D385008D2EF0 /* DoorKnobTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C72FBB541087D385008D2EF0 /* DoorKnobTest.m */; };
 		C76274DE107FD869003945F8 /* DoorsDirectionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C76274DD107FD869003945F8 /* DoorsDirectionsTest.m */; };
 		C77B40F8107D4013005BDAD3 /* WorldModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C77B40F7107D4013005BDAD3 /* WorldModelTest.m */; };
 		C77B40F9107D4033005BDAD3 /* WorldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C77B40F2107D3E5C005BDAD3 /* WorldModel.m */; };
@@ -47,6 +48,8 @@
 		C72FBABB1087C0CA008D2EF0 /* DoorLocator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorLocator.m; sourceTree = "<group>"; };
 		C72FBABF1087C71B008D2EF0 /* DoorLocatorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorLocatorTest.h; sourceTree = "<group>"; };
 		C72FBAC01087C71B008D2EF0 /* DoorLocatorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorLocatorTest.m; sourceTree = "<group>"; };
+		C72FBB531087D385008D2EF0 /* DoorKnobTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorKnobTest.h; sourceTree = "<group>"; };
+		C72FBB541087D385008D2EF0 /* DoorKnobTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorKnobTest.m; sourceTree = "<group>"; };
 		C76274DC107FD869003945F8 /* DoorsDirectionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsDirectionsTest.h; sourceTree = "<group>"; };
 		C76274DD107FD869003945F8 /* DoorsDirectionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorsDirectionsTest.m; sourceTree = "<group>"; };
 		C7627537107FDBDA003945F8 /* DoorsDirections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorsDirections.h; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				C7E85B6F103EDABC00138FAB /* AppControllerTest.m */,
 				C72FBABF1087C71B008D2EF0 /* DoorLocatorTest.h */,
 				C72FBAC01087C71B008D2EF0 /* DoorLocatorTest.m */,
+				C72FBB531087D385008D2EF0 /* DoorKnobTest.h */,
+				C72FBB541087D385008D2EF0 /* DoorKnobTest.m */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				C77B40F8107D4013005BDAD3 /* WorldModelTest.m in Sources */,
 				C76274DE107FD869003945F8 /* DoorsDirectionsTest.m in Sources */,
 				C72FBAC11087C71B008D2EF0 /* DoorLocatorTest.m in Sources */,
+				C72FBB551087D385008D2EF0 /* DoorKnobTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,22 @@
 #import "DoorsDirections.h"
 #import "DoorLocator.h"
 
+@class WorldModel;
+
+// I contain a list of DoorLocators of the doors I toggle
+@interface DoorKnob : NSObject {
+    WorldModel *worldModel;
+    NSArray *doorLocators;
+}
+- (id)initWithWorldModel:(WorldModel *)aModel andDoorLocators:(NSArray *)aDoorLocatorArray;
+- (void)toggle;
+@end
+
+
 @interface WorldModel : NSObject {
     BOOL horizontalDoorsOpen[3][2];
     BOOL verticalDoorsOpen[2][3];
+    DoorKnob *doorKnobs[3][3]; 
 }
 
 // invalid (x,y) implies false
