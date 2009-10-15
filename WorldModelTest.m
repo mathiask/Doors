@@ -255,31 +255,28 @@
 
 
 - (void)testToggleDoorOnHorizontalDoor {
-    DoorsDoorCoordinates dc = { 1, 1};
-    DoorLocator locator = { HORIZONTAL_DOOR, dc};
+    DoorLocator *locator = [DoorLocator newWithHorizontalDoor:HORIZONTAL_DOOR x:1 y:1];
     [model toggleDoor:locator];
-    STAssertFalse([model isHorizontalDoorOpen:dc], nil);
+    STAssertFalse([model isHorizontalDoorOpen:[locator coordinates]], nil);
 }
 
 - (void)testToggleDoorTwice {
-    DoorsDoorCoordinates dc = { 1, 1};
-    DoorLocator locator = { HORIZONTAL_DOOR, dc };
+    DoorLocator *locator = [DoorLocator newWithHorizontalDoor:HORIZONTAL_DOOR x:1 y:1];
     [model toggleDoor:locator];
     [model toggleDoor:locator];
-    STAssertTrue([model isHorizontalDoorOpen:dc], nil);
+    STAssertTrue([model isHorizontalDoorOpen:[locator coordinates]], nil);
 }
 
 - (void)testToggleDoorLeavesOtherDoorsInPeace {
-    DoorsDoorCoordinates dc = { 1, 1};
+    DoorLocator *locator = [DoorLocator newWithHorizontalDoor:HORIZONTAL_DOOR x:1 y:1];
     DoorsDoorCoordinates other = { 0, 1};
-    DoorLocator locator = { HORIZONTAL_DOOR, dc };
     [model toggleDoor:locator];
     STAssertTrue([model isHorizontalDoorOpen:other], nil);
 }
 
 - (void)testToggleDoorOnVerticalDoor {
+    DoorLocator *locator = [DoorLocator newWithHorizontalDoor:VERTICAL_DOOR x:1 y:1];
     DoorsDoorCoordinates dc = { 1, 1};
-    DoorLocator locator = { VERTICAL_DOOR, dc };
     [model toggleDoor:locator];
     STAssertFalse([model isVerticalDoorOpen:dc], nil);
 }

@@ -82,9 +82,9 @@
 }
 
 
-- (void)toggleDoor:(DoorLocator)doorLocator {
-    DoorsDoorCoordinates c = doorLocator.coordinates;
-    if (doorLocator.horizontalDoor)
+- (void)toggleDoor:(DoorLocator *)doorLocator {
+    DoorsDoorCoordinates c = [doorLocator coordinates];
+    if ([doorLocator horizontalDoor])
         horizontalDoorsOpen[c.x][c.y] = !horizontalDoorsOpen[c.x][c.y];
     else
         verticalDoorsOpen[c.x][c.y] = !verticalDoorsOpen[c.x][c.y];

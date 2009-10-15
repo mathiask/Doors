@@ -8,15 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "DoorsDirections.h"
-
-// Auxiliary type to specify a horizontal or vertical door, plus coordinates
-typedef struct {
-    BOOL horizontalDoor;
-    DoorsDoorCoordinates coordinates;
-} DoorLocator;
-
-#define HORIZONTAL_DOOR YES
-#define VERTICAL_DOOR NO
+#import "DoorLocator.h"
 
 @interface WorldModel : NSObject {
     BOOL horizontalDoorsOpen[3][2];
@@ -40,6 +32,6 @@ typedef struct {
 
 - (BOOL)directionImpliesHorizontalDoor:(Class)direction;
 - (DoorsDoorCoordinates) doorCoordinatesAt:(DoorsCoordinates)position andDirection:(Class)direction;
-- (void)toggleDoor:(DoorLocator)doorLocator;
+- (void)toggleDoor:(DoorLocator *)doorLocator;
 
 @end
