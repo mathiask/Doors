@@ -52,67 +52,79 @@
 }
 
 
-- (void) testUpImpliesHorizontal {
+- (void) testUpImpliesHorizontal 
+{
     STAssertTrue([model directionImpliesHorizontalDoor:[DoorsDirectionUp class]], nil);
 }
 
-- (void) testRightImpliesHorizontal {
+- (void) testRightImpliesHorizontal 
+{
     STAssertFalse([model directionImpliesHorizontalDoor:[DoorsDirectionRight class]], nil);
 }
 
-- (void) testDownImpliesHorizontal {
+- (void) testDownImpliesHorizontal 
+{
     STAssertTrue([model directionImpliesHorizontalDoor:[DoorsDirectionDown class]], nil);
 }
 
-- (void) testLeftImpliesHorizontal {
+- (void) testLeftImpliesHorizontal 
+{
     STAssertFalse([model directionImpliesHorizontalDoor:[DoorsDirectionLeft class]], nil);
 }
 
 
-- (void)testDoorCoordinatesAtAndDirectionUp {
+- (void)testDoorCoordinatesAtAndDirectionUp 
+{
     DoorsCoordinates position = { 1, 1 };
     DoorsDoorCoordinates expected = { 1, 1 };
     STAssertEquals(expected, [model doorCoordinatesAt:position andDirection:[DoorsDirectionUp class]], nil);
 }
 
-- (void)testDoorCoordinatesAtAndDirectionRight {
+- (void)testDoorCoordinatesAtAndDirectionRight 
+{
     DoorsCoordinates position = { 1, 1 };
     DoorsDoorCoordinates expected = { 1, 1 };
     STAssertEquals(expected, [model doorCoordinatesAt:position andDirection:[DoorsDirectionRight class]], nil);
 }
 
-- (void)testDoorCoordinatesAtAndDirectionDown {
+- (void)testDoorCoordinatesAtAndDirectionDown 
+{
     DoorsCoordinates position = { 1, 1 };
     DoorsDoorCoordinates expected = { 1, 0 };
     STAssertEquals(expected, [model doorCoordinatesAt:position andDirection:[DoorsDirectionDown class]], nil);
 }
 
-- (void)testDoorCoordinatesAtAndDirectionLeft {
+- (void)testDoorCoordinatesAtAndDirectionLeft 
+{
     DoorsCoordinates position = { 1, 1 };
     DoorsDoorCoordinates expected = { 0, 1 };
     STAssertEquals(expected, [model doorCoordinatesAt:position andDirection:[DoorsDirectionLeft class]], nil);
 }
 
 
-- (void)testVerticalDoor01ImpassableFromLeft {
+- (void)testVerticalDoor01ImpassableFromLeft 
+{
     [model closeVerticalDoorAtX:0 andY:1];
     DoorsCoordinates position = { 0, 1 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionRight class]], nil);
 }
 
-- (void)testVerticalDoor01ImpassableFromRight {
+- (void)testVerticalDoor01ImpassableFromRight 
+{
     [model closeVerticalDoorAtX:0 andY:1];
     DoorsCoordinates position = { 1, 1 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionLeft class]], nil);
 }
 
-- (void)testVerticalDoor01PassableFromUnrelatedCell {
+- (void)testVerticalDoor01PassableFromUnrelatedCell 
+{
     [model closeVerticalDoorAtX:0 andY:1];
     DoorsCoordinates position = { 1, 2 };
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionLeft class]], nil);
 }
 
-- (void)testVerticalDoor01PassableForAllUps {
+- (void)testVerticalDoor01PassableForAllUps 
+{
     [model closeVerticalDoorAtX:0 andY:1];
     for (int x = 0; x < 3; x++) {
         for (int y = 0; y < 2; y++) {
@@ -122,7 +134,8 @@
     }
 }
 
-- (void)testVerticalDoor01PassableForAllDowns {
+- (void)testVerticalDoor01PassableForAllDowns 
+{
     [model closeVerticalDoorAtX:0 andY:1];
     for (int x = 0; x < 3; x++) {
         for (int y = 1; y < 3; y++) {
@@ -133,25 +146,29 @@
 }
 
 
-- (void)testHorizontalDoor01ImpassableFromBelow {
+- (void)testHorizontalDoor01ImpassableFromBelow 
+{
     [model closeHorizontalDoorAtX:0 andY:1];
     DoorsCoordinates position = { 0, 1 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionUp class]], nil);
 }
 
-- (void)testHorizontalDoor01ImpassableFromAbove {
+- (void)testHorizontalDoor01ImpassableFromAbove 
+{
     [model closeHorizontalDoorAtX:0 andY:1];
     DoorsCoordinates position = { 0, 2 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionDown class]], nil);
 }
 
-- (void)testHorizontalDoor01PassableFromUnrelatedCell {
+- (void)testHorizontalDoor01PassableFromUnrelatedCell 
+{
     [model closeHorizontalDoorAtX:0 andY:1];
     DoorsCoordinates position = { 1, 2 };
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionDown class]], nil);
 }
 
-- (void)testHorizontalDoor01PassableForAllRights {
+- (void)testHorizontalDoor01PassableForAllRights 
+{
     [model closeHorizontalDoorAtX:0 andY:1];
     for (int x = 0; x < 2; x++) {
         for (int y = 0; y < 3; y++) {
@@ -161,7 +178,8 @@
     }
 }
 
-- (void)testHorizontalDoor01PassableForAllLefts {
+- (void)testHorizontalDoor01PassableForAllLefts 
+{
     [model closeHorizontalDoorAtX:0 andY:1];
     for (int x = 1; x < 3; x++) {
         for (int y = 0; y < 3; y++) {
@@ -172,37 +190,44 @@
 }
 
 
-- (void)testBottomLeftCornerUp {
+- (void)testBottomLeftCornerUp 
+{
     DoorsCoordinates position = { 0, 0 };
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionUp class]], nil);
 }
 
-- (void)testBottomLeftCornerRight {
+- (void)testBottomLeftCornerRight 
+{
     DoorsCoordinates position = { 0, 0 };
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionRight class]], nil);
 }
 
-- (void)testBottomLeftCornerDown {
+- (void)testBottomLeftCornerDown 
+{
     DoorsCoordinates position = { 0, 0 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionDown class]], nil);
 }
 
-- (void)testBottomLeftCornerLeft {
+- (void)testBottomLeftCornerLeft 
+{
     DoorsCoordinates position = { 0, 0 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionLeft class]], nil);
 }
 
-- (void)testBottomRightCornerUp {
+- (void)testBottomRightCornerUp 
+{
     DoorsCoordinates position = { 2, 0 };
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionUp class]], nil);
 }
 
-- (void)testBottomRightCornerRight {
+- (void)testBottomRightCornerRight 
+{
     DoorsCoordinates position = { 2, 0 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionRight class]], nil);
 }
 
-- (void)testBottomRightCornerDown {
+- (void)testBottomRightCornerDown 
+{
     DoorsCoordinates position = { 2, 0 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionDown class]], nil);
 }
@@ -213,7 +238,8 @@
 }
 
 
-- (void)testTopLeftCornerUp {
+- (void)testTopLeftCornerUp 
+{
     DoorsCoordinates position = { 0, 2 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionUp class]], nil);
 }
@@ -223,32 +249,38 @@
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionRight class]], nil);
 }
 
-- (void)testTopLeftCornerDown {
+- (void)testTopLeftCornerDown 
+{
     DoorsCoordinates position = { 0, 2 };
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionDown class]], nil);
 }
 
-- (void)testTopLeftCornerLeft {
+- (void)testTopLeftCornerLeft 
+{
     DoorsCoordinates position = { 0, 2 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionLeft class]], nil);
 }
 
-- (void)testTopRightCornerUp {
+- (void)testTopRightCornerUp 
+{
     DoorsCoordinates position = { 2, 2 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionUp class]], nil);
 }
 
-- (void)testTopRightCornerRight {
+- (void)testTopRightCornerRight 
+{
     DoorsCoordinates position = { 2, 2 };
     STAssertFalse([model canMoveFrom:position inDirection:[DoorsDirectionRight class]], nil);
 }
 
-- (void)testTopRightCornerDown {
+- (void)testTopRightCornerDown 
+{
     DoorsCoordinates position = { 2, 2 };
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionDown class]], nil);
 }
 
-- (void)testTopRightCornerLeft {
+- (void)testTopRightCornerLeft 
+{
     DoorsCoordinates position = { 2, 2 };
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionLeft class]], nil);
 }
@@ -260,25 +292,40 @@
     STAssertFalse([model isHorizontalDoorOpen:[locator coordinates]], nil);
 }
 
-- (void)testToggleDoorTwice {
+- (void)testToggleDoorTwice 
+{
     DoorLocator *locator = [DoorLocator newWithHorizontalDoor:HORIZONTAL_DOOR x:1 y:1];
     [model toggleDoor:locator];
     [model toggleDoor:locator];
     STAssertTrue([model isHorizontalDoorOpen:[locator coordinates]], nil);
 }
 
-- (void)testToggleDoorLeavesOtherDoorsInPeace {
+- (void)testToggleDoorLeavesOtherDoorsInPeace 
+{
     DoorLocator *locator = [DoorLocator newWithHorizontalDoor:HORIZONTAL_DOOR x:1 y:1];
     DoorsDoorCoordinates other = { 0, 1};
     [model toggleDoor:locator];
     STAssertTrue([model isHorizontalDoorOpen:other], nil);
 }
 
-- (void)testToggleDoorOnVerticalDoor {
+- (void)testToggleDoorOnVerticalDoor 
+{
     DoorLocator *locator = [DoorLocator newWithHorizontalDoor:VERTICAL_DOOR x:1 y:1];
     DoorsDoorCoordinates dc = { 1, 1};
     [model toggleDoor:locator];
     STAssertFalse([model isVerticalDoorOpen:dc], nil);
+}
+
+
+- (void)testToggleUsingDoorKnob
+{
+    DoorLocator *locator1 = [DoorLocator newWithHorizontalDoor:true x:1 y:2];
+    DoorLocator *locator2 = [DoorLocator newWithHorizontalDoor:false x:2 y:0];
+    NSArray *locators = [NSArray arrayWithObjects: locator1, locator2];
+    DoorKnob *doorKnob = [[DoorKnob alloc] initWithWorldModel:model andDoorLocators:locators];
+    [doorKnob toggle];
+    STAssertFalse([model isHorizontalDoorOpen:[locator1 coordinates]], nil); 
+    STAssertFalse([model isHorizontalDoorOpen:[locator2 coordinates]], nil); 
 }
 
 @end
