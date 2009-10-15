@@ -151,7 +151,7 @@
     STAssertTrue([model canMoveFrom:position inDirection:[DoorsDirectionDown class]], nil);
 }
 
-- (void)testHorizontalDoor01PassableForAllRightss {
+- (void)testHorizontalDoor01PassableForAllRights {
     [model closeHorizontalDoorAtX:0 andY:1];
     for (int x = 0; x < 2; x++) {
         for (int y = 0; y < 3; y++) {
