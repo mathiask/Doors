@@ -25,8 +25,11 @@
 @interface WorldModel : NSObject {
     BOOL horizontalDoorsOpen[3][2];
     BOOL verticalDoorsOpen[2][3];
-    DoorKnob *doorKnobs[3][3]; 
+    DoorKnob *doorKnobs[3][3];
+    DoorsCoordinates playerPosition;
 }
+
+@property DoorsCoordinates playerPosition;
 
 // invalid (x,y) implies false
 - (BOOL)isHorizontalDoorOpenAtX:(int)x andY:(int)y;
@@ -34,17 +37,25 @@
 - (BOOL)isVerticalDoorOpenAtX:(int)x andY:(int)y;
 - (BOOL)isVerticalDoorOpen:(DoorsDoorCoordinates)doorCoordinates;
 
+- (void)openAllDoors;
 - (void)closeHorizontalDoorAtX:(int)x andY:(int)y;
 - (void)closeVerticalDoorAtX:(int)x andY:(int)y;
 
-- (BOOL)canMoveFrom:(DoorsCoordinates)position inDirection:(Class)direction;
+- (void)setDoorKnobAtX:(int)x andY:(int)y withDoors:(NSArray *)aDoorLocatorArray;
+
+- (void)operateDoorKnob;
+- (BOOL)moveInDirection:(Class)direction;
+- (BOOL)playerAtTargetPosition;
 
 @end
+
 
 @interface WorldModel (private) 
 
 - (BOOL)directionImpliesHorizontalDoor:(Class)direction;
 - (DoorsDoorCoordinates) doorCoordinatesAt:(DoorsCoordinates)position andDirection:(Class)direction;
 - (void)toggleDoor:(DoorLocator *)doorLocator;
+- (BOOL)canMoveFrom:(DoorsCoordinates)position inDirection:(Class)direction;
+- (void)operateDoorKnobAtX:(int)x andY:(int)y;
 
 @end

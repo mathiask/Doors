@@ -328,4 +328,82 @@
     STAssertFalse([model isHorizontalDoorOpen:[locator2 coordinates]], nil); 
 }
 
+
+- (void)testCanOperateEmptyDoorKnob
+{
+    [model operateDoorKnobAtX:1 andY:1];
+}
+
+
+- (void)testIntegratedOperateDoorKnob
+{
+    // setup
+    DoorLocator *locator1 = [DoorLocator newWithHorizontalDoor:true x:1 y:2];
+    DoorLocator *locator2 = [DoorLocator newWithHorizontalDoor:false x:2 y:0];
+    NSArray *locators = [NSArray arrayWithObjects: locator1, locator2];
+    [model setDoorKnobAtX:1 andY:1 withDoors:locators];
+    // execute
+    [model operateDoorKnobAtX:1 andY:1];
+    // validate
+    STAssertFalse([model isHorizontalDoorOpenAtX:1 andY:2], nil);
+    STAssertFalse([model isVerticalDoorOpenAtX:2 andY:0], nil);
+}
+
+
+- (void)testPlayerStartPosition
+{
+    DoorsCoordinates expectedPosition = {0, 2};
+    STAssertEquals(expectedPosition, [model playerPosition], nil);
+}
+
+
+- (void)closeDoorV11AndMakeDoorKnobForItAt11AntPlacePlayerThere
+{
+    [model closeVerticalDoorAtX:1 andY:1];
+    [model 
+        setDoorKnobAtX:1 
+        andY:1 
+        withDoors:[NSArray arrayWithObject:[DoorLocator newWithHorizontalDoor:VERTICAL_DOOR x:1 y:1]]];
+    DoorsCoordinates playerPosition = {1, 1};
+    [model setPlayerPosition:playerPosition];
+}
+
+- (void)testPlayerCanMoveThroughOpenDoor
+{
+    [self closeDoorV11AndMakeDoorKnobForItAt11AntPlacePlayerThere];
+    DoorsCoordinates expectedPosition = {1, 2};
+    STAssertTrue([model moveInDirection:[DoorsDirectionUp class]], nil);
+    STAssertEquals(expectedPosition, [model playerPosition], nil);
+}
+
+- (void)testPlayerCannotMoveThroughClosedDoor
+{
+    [self closeDoorV11AndMakeDoorKnobForItAt11AntPlacePlayerThere];
+    DoorsCoordinates expectedPosition = {1, 1};
+    STAssertFalse([model moveInDirection:[DoorsDirectionRight class]], nil);
+    STAssertEquals(expectedPosition, [model playerPosition], nil);
+}
+
+- (void)testPlayerCannMoveThroughDoorAfterOpeningIt
+{
+    [self closeDoorV11AndMakeDoorKnobForItAt11AntPlacePlayerThere];
+    DoorsCoordinates expectedPosition = {2, 1};
+    [model operateDoorKnob];
+    STAssertTrue([model moveInDirection:[DoorsDirectionRight class]], nil);
+    STAssertEquals(expectedPosition, [model playerPosition], nil);
+}
+
+
+- (void)testPlayerInitiallyNotAtTarget
+{
+    STAssertFalse([model playerAtTargetPosition], nil);
+}
+
+- (void)testPlayerAtTarget
+{
+    DoorsCoordinates targetPosition = {2, 0};
+    [model setPlayerPosition:targetPosition];
+    STAssertTrue([model playerAtTargetPosition], nil);
+}
+
 @end

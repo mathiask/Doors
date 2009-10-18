@@ -36,18 +36,51 @@
 @end
 
 
+@interface WorldModel () 
+- (void)setupDoorKnobs;
+- (void)setupPlayerStartPosition;
+@end
 
 @implementation WorldModel
+
+@synthesize playerPosition;
+
 - (id)init 
 {
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 3; j++) {
-            horizontalDoorsOpen[j][i] = YES;
-            verticalDoorsOpen[i][j] = YES;
-        }
+    if (self = [super init]) {
+        [self openAllDoors];
+        [self setupDoorKnobs];
+        [self setupPlayerStartPosition];
     }
     return self;
 }
+
+- (void)setupDoorKnobs
+{
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            doorKnobs[i][j] = nil;
+        }
+    }
+}
+
+- (void)setupPlayerStartPosition 
+{
+    playerPosition.x = 0;
+    playerPosition.y = 2;
+}
+
+
+- (void)dealloc
+{
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            [doorKnobs[i][j] release];
+        }
+    }
+    [super dealloc];
+}
+
 
 - (BOOL)isHorizontalDoorOpenAtX:(int)x andY:(int)y 
 {
@@ -76,6 +109,17 @@
     return [self isVerticalDoorOpenAtX:doorCoordinates.x andY:doorCoordinates.y];
 }
 
+
+- (void)openAllDoors
+{
+    for (int i = 0; i < 2; i++) {
+        for (int j = 0; j < 3; j++) {
+            horizontalDoorsOpen[j][i] = YES;
+            verticalDoorsOpen[i][j] = YES;
+        }
+    }
+}
+
 - (void)closeVerticalDoorAtX:(int)x andY:(int)y
 {
     NSParameterAssert(x >= 0 && x < 2);
@@ -83,13 +127,33 @@
     verticalDoorsOpen[x][y] = FALSE;
 }
 
-- (BOOL)canMoveFrom:(DoorsCoordinates)position inDirection:(Class)direction 
+
+- (void)setDoorKnobAtX:(int)x andY:(int)y withDoors:(NSArray *)aDoorLocatorArray
 {
-    DoorsDoorCoordinates doorCoordinates = [self doorCoordinatesAt:position andDirection:direction];
-    return [self directionImpliesHorizontalDoor:direction] ?
-        [self isHorizontalDoorOpen:doorCoordinates] :
-        [self isVerticalDoorOpen:doorCoordinates];
+    doorKnobs[x][y] = [[DoorKnob alloc] initWithWorldModel:self andDoorLocators:aDoorLocatorArray];
 }
+
+
+- (void)operateDoorKnob 
+{
+    [self operateDoorKnobAtX: playerPosition.x andY: playerPosition.y];
+}
+
+- (BOOL)moveInDirection:(Class)direction
+{
+    if ([self canMoveFrom: playerPosition inDirection: direction]) {
+        playerPosition.x += [direction asVector].x;
+        playerPosition.y += [direction asVector].y;
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (BOOL)playerAtTargetPosition {
+    return playerPosition.x == 2 && playerPosition.y == 0;
+}
+
 
 // private methods
 
@@ -121,6 +185,21 @@
         horizontalDoorsOpen[c.x][c.y] = !horizontalDoorsOpen[c.x][c.y];
     else
         verticalDoorsOpen[c.x][c.y] = !verticalDoorsOpen[c.x][c.y];
+}
+
+
+- (BOOL)canMoveFrom:(DoorsCoordinates)position inDirection:(Class)direction 
+{
+    DoorsDoorCoordinates doorCoordinates = [self doorCoordinatesAt:position andDirection:direction];
+    return [self directionImpliesHorizontalDoor:direction] ?
+    [self isHorizontalDoorOpen:doorCoordinates] :
+    [self isVerticalDoorOpen:doorCoordinates];
+}
+
+
+- (void)operateDoorKnobAtX:(int)x andY:(int)y
+{
+    [doorKnobs[x][y] toggle];
 }
 
 @end
