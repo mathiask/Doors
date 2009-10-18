@@ -10,29 +10,29 @@
 
 
 @implementation AppControllerTest
--(void) setUp
+- (void)setUp
 {
     appController = [AppController new];
 }
 
--(void)tearDown
+- (void)tearDown
 {
     [appController release];
 }
 
--(void) testDoorsAreInitiallyOpen
+- (void)testDoorsAreInitiallyOpen
 {
     STAssertFalse([appController doorsClosed], nil);
 }
 
 
--(void) testStartOpensDoor
+- (void)testStartOpensDoor
 {
     [appController start:nil];
     STAssertTrue([appController doorsClosed], nil);  
 }
 
--(void) testResetClosesDoorAgain
+- (void)testResetClosesDoorAgain
 {
     [appController start:nil];
     [appController reset:nil];

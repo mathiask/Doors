@@ -13,10 +13,8 @@
 - (id)initWithWorldModel:(WorldModel *)aModel andDoorLocators:(NSArray *)aDoorLocatorArray
 {
     if (self = [super init]) {
-        [aModel retain];
-        worldModel = aModel;
-        [aDoorLocatorArray retain];
-        doorLocators = aDoorLocatorArray;
+        worldModel = [aModel retain];
+        doorLocators = [aDoorLocatorArray retain];
     }
     return self;
 }
@@ -73,7 +71,8 @@
     return x >= 0 && x < 2 && y >= 0 && y < 3 && verticalDoorsOpen[x][y];
 }
 
-- (BOOL)isVerticalDoorOpen:(DoorsDoorCoordinates)doorCoordinates{
+- (BOOL)isVerticalDoorOpen:(DoorsDoorCoordinates)doorCoordinates
+{
     return [self isVerticalDoorOpenAtX:doorCoordinates.x andY:doorCoordinates.y];
 }
 
@@ -100,7 +99,7 @@
     return vector.y != 0;
 }
 
-- (DoorsDoorCoordinates) doorCoordinatesAt:(DoorsCoordinates)position andDirection:(Class)direction 
+- (DoorsDoorCoordinates)doorCoordinatesAt:(DoorsCoordinates)position andDirection:(Class)direction 
 {
     DoorsVector vector = [direction asVector];
     DoorsDoorCoordinates d;    

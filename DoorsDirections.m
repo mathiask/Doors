@@ -9,28 +9,32 @@
 #import "DoorsDirections.h"
 
 @implementation DoorsDirectionUp
-+ (DoorsVector)asVector{
++ (DoorsVector)asVector
+{
     DoorsVector up = {0, 1};
     return up;
 }
 @end
 
 @implementation DoorsDirectionRight
-+ (DoorsVector)asVector{
++ (DoorsVector)asVector
+{
     DoorsVector up = {1, 0};
     return up;
 }
 @end
 
 @implementation DoorsDirectionDown
-+ (DoorsVector)asVector{
++ (DoorsVector)asVector
+{
     DoorsVector up = {0, -1};
     return up;
 }
 @end
 
 @implementation DoorsDirectionLeft
-+ (DoorsVector)asVector{
++ (DoorsVector)asVector
+{
     DoorsVector up = {-1, 0};
     return up;
 }

@@ -10,7 +10,7 @@
 
 @implementation WorldModelTest
 
-- (void) setUp
+- (void)setUp
 {
     model = [WorldModel new];
 }
@@ -20,7 +20,7 @@
     [model release];
 }
 
-- (void) testHorizontalDoorsAreInitiallyOpen
+- (void)testHorizontalDoorsAreInitiallyOpen
 {
     for (int y = 0; y < 2; y++) {
         for (int x = 0; x < 3; x++) {
@@ -29,14 +29,14 @@
     }
 }
 
-- (void) testHorizontalDoorClosed
+- (void)testHorizontalDoorClosed
 {
     [model closeHorizontalDoorAtX:1 andY:1];
     STAssertFalse([model isHorizontalDoorOpenAtX:1 andY:1], nil);
 }
 
 
--(void) testVerticalDoorsAreInitiallyOpen
+- (void)testVerticalDoorsAreInitiallyOpen
 {
     for (int y = 0; y < 3; y++) {
         for (int x = 0; x < 2; x++) {
@@ -45,29 +45,29 @@
     }
 }
 
-- (void) testVerticalDoorClosed
+- (void)testVerticalDoorClosed
 {
     [model closeVerticalDoorAtX:1 andY:1];
     STAssertFalse([model isVerticalDoorOpenAtX:1 andY:1], nil);
 }
 
 
-- (void) testUpImpliesHorizontal 
+- (void)testUpImpliesHorizontal 
 {
     STAssertTrue([model directionImpliesHorizontalDoor:[DoorsDirectionUp class]], nil);
 }
 
-- (void) testRightImpliesHorizontal 
+- (void)testRightImpliesHorizontal 
 {
     STAssertFalse([model directionImpliesHorizontalDoor:[DoorsDirectionRight class]], nil);
 }
 
-- (void) testDownImpliesHorizontal 
+- (void)testDownImpliesHorizontal 
 {
     STAssertTrue([model directionImpliesHorizontalDoor:[DoorsDirectionDown class]], nil);
 }
 
-- (void) testLeftImpliesHorizontal 
+- (void)testLeftImpliesHorizontal 
 {
     STAssertFalse([model directionImpliesHorizontalDoor:[DoorsDirectionLeft class]], nil);
 }

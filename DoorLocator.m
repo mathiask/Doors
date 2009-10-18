@@ -10,11 +10,13 @@
 
 @implementation DoorLocator
 
-+ (id)newWithHorizontalDoor:(BOOL)aHorizontalDoor x:(int)x y:(int)y {
++ (id)newWithHorizontalDoor:(BOOL)aHorizontalDoor x:(int)x y:(int)y 
+{
     return [[DoorLocator alloc] initWithHorizontalDoor:aHorizontalDoor x:x y:y];
 }
 
-- (id)initWithHorizontalDoor:(BOOL)aHorizontalDoor x:(int)x y:(int)y{
+- (id)initWithHorizontalDoor:(BOOL)aHorizontalDoor x:(int)x y:(int)y
+{
     if (self = [super init]) {
         horizontalDoor = aHorizontalDoor;
         coordinates.x = x;
@@ -26,11 +28,13 @@
 @synthesize horizontalDoor;
 @synthesize coordinates;
 
-- (int)x{
+- (int)x
+{
     return coordinates.x;
 }
 
-- (int)y{
+- (int)y
+{
     return coordinates.y;
 }
 

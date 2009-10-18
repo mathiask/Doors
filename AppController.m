@@ -12,9 +12,10 @@
 @implementation AppController
 - (id)init
 {
-	if(![super init]) return nil;
-	doorsClosed = NO;
-	return self;
+	if(self = [super init]) {
+        doorsClosed = NO;
+    }
+    return self;
 }
 
 @synthesize doorsClosed;

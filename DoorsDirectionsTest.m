@@ -11,22 +11,26 @@
 
 @implementation DoorsDirectionsTest
 
-- (void) testUpDirection {
+- (void)testUpDirection 
+{
     DoorsVector expected = { 0, 1 };
     STAssertEquals(expected, [DoorsDirectionUp asVector], nil);
 }
 
-- (void) testRightDirection {
+- (void)testRightDirection 
+{
     DoorsVector expected = { 1, 0 };
     STAssertEquals(expected, [DoorsDirectionRight asVector], nil);
 }
 
-- (void) testDownDirection {
+- (void)testDownDirection 
+{
     DoorsVector expected = { 0, -1 };
     STAssertEquals(expected, [DoorsDirectionDown asVector], nil);
 }
 
-- (void) testLeftDirection {
+- (void)testLeftDirection 
+{
     DoorsVector expected = { -1, 0 };
     STAssertEquals(expected, [DoorsDirectionLeft asVector], nil);
 }

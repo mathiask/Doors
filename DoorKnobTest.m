@@ -33,7 +33,8 @@
 
 @implementation DoorKnobTest
     
-- (void)testToggle{
+- (void)testToggle
+{
     DoorLocator *locator1 = [DoorLocator newWithHorizontalDoor:true x:1 y:2];
     DoorLocator *locator2 = [DoorLocator newWithHorizontalDoor:false x:2 y:0];
     NSArray *locators = [NSArray arrayWithObjects: locator1, locator2];

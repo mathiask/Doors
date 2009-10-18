@@ -1,0 +1,25 @@
+- (return type)method:(type)argument
+{
+	...
+}
+
+
+if () {
+...
+} 
+and friends
+
+
+if () return;
+
+
+x = [x retain];
+
+
+- (int)init
+{
+    if (self = [super init]) {
+	...
+    }
+    return self;
+}
